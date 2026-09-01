@@ -1,0 +1,121 @@
+1st Program is packet loss
+
+examples/traffic control/trafiic control.cc
+
+remove anything above main function
+remove command line args
+change to udp 
+nodes get 3
+devices- 2 first nodes.get(0),nodes.get(1)  second nodes.get(1),nodes.get(2)
+comment pointtopoint setqueue
+comment traffic control tch part till ipv4 
+address1,address2 
+address1.setbase()
+address2.setbase()
+interface1 = address1.Assign(devices1)
+interface2 
+sinkApp to node 2
+remote address interface1.GetAddress(1)
+comment out everything after tx packet output line till simulator::destroy()
+
+2nd Program 
+
+examples/traffic control/trafiic control.cc
+
+remove anything above main function
+remove command line args
+change to udp 
+changes nodes to 4
+devices- 3 first nodes.get(0),nodes.get(2)  second nodes.get(1),nodes.get(2) 
+comment pointtopoint setqueue
+comment traffic control tch part till ipv4 
+address1,address2,address3
+address1.setbase()
+address2.setbase()
+address3.setbase()
+interface1 = address1.Assign(devices1)
+interface2 
+interface3
+write Ipv4GlobalRoutingHelper::PopulateRoutingTables();
+// Udp flow
+in udp flow nodes.get(3) for sinkApp
+setremote interfaces3 GetAddress(1)
+remove rmt.Settos
+apps.add(onoff.install(nodes.get(0)))
+copy from //udp flow till apps.stop
+paste and rename to tcp flow
+set tcp_port to 8
+socketType="ns3::TcpSocketFactory" port_tcp
+change attributes to _tcp (sinkapp_tcp,onoff_tcp,apps_tcp;)
+start(seconds(1.0))
+payload size comment out
+port_tcp
+onoff_tcp
+onoff_tcp node.Get(1)
+keep flowmonitor
+delete everything between simulator::run to simulator::destroy except classifier and flowmonitor
+delete everything after simulator::destroy
+after classifier 
+for(std::map<FlowID,FlowMonitor::FLlowStats>::const_iterator iter=stats.begin();iter!=stats.end();++iter)
+{
+    Ipv4FlowClassifier::FiveTuple t = classifier->FindFlow(iter->first);
+    NS_LOG_UNCOND("FlowID: "<<iter->first<< " Src Address " << t.sourceAddress << "Dst Address "<< t.destinationAddress);
+    NS_LOG_UNCOND("Tx-packet: "<<iter->second.txPackets);
+}
+
+3rd Program
+
+examples/tutorial/third.cc
+
+remove anything above main function 
+#inlcude "ns3/flow-monitor-module.h" from traffic control
+remove command line args part
+remove bool verbose and testing
+remove if verbose testing
+comment echo server till client apps
+add flow from traffic control till app.stop from remoteaddress
+change remoteaddress getaddress (ncsma)
+flow monitor after simulator::run
+for(std::map<FlowID,FlowMonitor::FLlowStats>::const_iterator iter=stats.begin();iter!=stats.end();++iter)
+{
+    Ipv4FlowClassifier::FiveTuple t = classifier->FindFlow(iter->first);
+    NS_LOG_UNCOND("FlowID: "<<iter->first<< " Src Address " << t.sourceAddress << "Dst Address "<< t.destinationAddress);
+    NS_LOG_UNCOND("Tx-packet: "<<iter->second.txPackets);
+}
+simulator::destroy();
+remove if testing
+
+4th program 
+
+examples/wireless/wifi-simple-adhoc
+
+#inlcude "ns3/flow-monitor-module.h" from traffic control
+remove anthing above #inlcude 
+rmeove anything above main()
+remove from unit32_t till cmd.parse
+create 5 nodes
+remove if verbose
+double simulationTime=10;
+std::string socketType = "ns3::UdpSocketFactory";
+positionAlloc->Add (Vector (10.0, 0.0, 0.0));
+positionAlloc->Add (Vector (15.0, 0.0, 0.0));
+positionAlloc->Add (Vector (20.0, 0.0, 0.0));
+remove everything above simulator::run
+add Ipv4GlobalRoutingHelper
+copy flow from traffic
+changes nodes to c
+sinkApp c.get(2)
+remoteaddress i.GetAddress(3)
+apps.Add(onoff.Install(c.get(0)))
+copy flow monitor and keep flow ID Tx Rx and throughput
+
+5th program 
+
+src/csma/examples/csma-ping.cc
+
+remove everything above main
+create 6 nodesonoffHelper change to UdpSocketFactory
+pingers.Add (c.Get (4));
+pingers.Add (c.Get (5));
+Remove everything uptil simulator::run 
+Add flow monitor 

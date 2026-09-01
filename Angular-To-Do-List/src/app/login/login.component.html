@@ -1,0 +1,99 @@
+<div class="login-wrapper">
+  <div class="card-wrapper">
+    <mat-card [class.mat-elevation-z8]="true" class="card">
+      <mat-card-title class="title">To Do List App</mat-card-title>
+      <mat-card-content>
+        <div class="form">
+          <div class="form-group">
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label>Enter your email</mat-label>
+              <input
+                matInput
+                [(ngModel)]="userEmail"
+                placeholder="name@domain.com"
+                [formControl]="email"
+                required
+              />
+              <button
+                mat-button
+                *ngIf="userEmail"
+                matSuffix
+                mat-icon-button
+                aria-label="Clear"
+                (click)="userEmail = ''"
+              >
+                <mat-icon>close</mat-icon>
+              </button>
+              <mat-error *ngIf="email.invalid">{{
+                getErrorMessage()
+              }}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label>Password</mat-label>
+              <input
+                matInput
+                [(ngModel)]="userPassword"
+                placeholder=""
+                [type]="hide ? 'password' : 'text'"
+              />
+              <div class="suffix" matSuffix>
+                <button
+                  mat-button
+                  *ngIf="userPassword"
+                  mat-icon-button
+                  aria-label="Clear"
+                  (click)="userPassword = ''"
+                >
+                  <mat-icon>close</mat-icon>
+                </button>
+                <button
+                  mat-icon-button
+                  color="primary"
+                  (click)="hide = !hide"
+                  [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide"
+                >
+                  <mat-icon>{{
+                    hide ? "visibility_off" : "visibility"
+                  }}</mat-icon>
+                </button>
+              </div>
+            </mat-form-field>
+          </div>
+          <div class="form-group-btn">
+            <button
+              mat-stroked-button
+              color="accent"
+              class="btn"
+              (click)="tryLogin()"
+            >
+              Log In
+            </button>
+            <button
+              mat-flat-button
+              color="primary"
+              class="btn"
+              routerLink="/signup"
+            >
+              Sign Up
+            </button>
+          </div>
+          <div class="form-group-google">
+            <button class="btn" mat-flat-button (click)="signInWithGoogle()">
+              <div class="btn-wrapper">
+                <img
+                  class="img-responsive"
+                  src="assets/google_sign_in.svg"
+                  alt="google icon"
+                />
+                <p>Sign in With Google</p>
+              </div>
+            </button>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

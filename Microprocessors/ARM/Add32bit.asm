@@ -1,0 +1,10 @@
+	PRESERVE8
+	THUMB
+	AREA |.text|,CODE,READONLY
+	EXPORT __main
+__main
+	LDR R0,=0x20000000
+	LDR R1,=0x20000000
+	ADDS R0,R0,R1
+stop B stop
+	END

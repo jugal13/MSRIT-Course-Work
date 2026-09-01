@@ -1,0 +1,5 @@
+n = int(input("Enter number: "))
+s1 = list(range(1,n+1))
+s2 = list(map(lambda x: x**2,s1))
+diff = sum(s1)**2 - sum(s2)
+print(diff)

@@ -1,0 +1,11 @@
+OpenMP
+gcc -fopenmp file.c
+./a.out
+
+MPI
+mpicc file.c
+mpirun -np 4 a.out
+
+CUDA
+nvcc file.cu
+./a.out

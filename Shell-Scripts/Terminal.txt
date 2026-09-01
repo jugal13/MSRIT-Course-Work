@@ -1,0 +1,397 @@
+TERMINAL
+
+[Use man command as it gives manuals for all commands]
+[Use the internet to check out the commands and their uses]
+[any changes to variables and aliases are specific to that window]
+[any perment change to variables and permenant alias should be added to .bash_profile for mac and .bashrc for linux]
+http://bashrcgenerator.com [Generate PS1 for bash customisation]
+
+UNIX COMMANDS
+
+1. who [option]
+who - displays who is logged in 
+	EXAMPLES:
+		who (displays who is logged in)
+		who -b (displays last reboot time along with user)
+	OPTIONS:
+		1. -b time of last system boot
+
+2. whoami
+whoami - display effective user id
+
+3. ps [options]
+ps - process status
+	EXAMPLES:
+		1. ps -u test (Prints all processes running by the user test)
+	OPTIONS:
+		1. -u prints process related to specific user name
+
+4. kill [options] <PID>
+kill - terminate or signal a process
+	EXAMPLE:
+		1. kill -9 3122 (Force kills a process with PID as 3122)
+
+5. killall [options] <process_name>
+killall - terminate process by name
+	EXAMPLE:
+		1. killall -9 Safari (Force kills safari) 	
+
+6. tty [-s]
+tty - returns user's terminal name
+	OPTIONS:
+		1. -s print nothing
+
+7. stty [operands]
+stty - sets options for temrinal device interface
+	OPTIONS:
+	1. -a print all
+	2. -e print current settings
+	3. -f open and use by file
+
+8. uname [options]
+uname - prints the operating system name	
+	OPTIONS:
+		1. -a print all options
+		2. -m priint machine hardware
+		3. -n print node name
+		4. -p print processor architecture name
+		5. -r print os release
+
+9. type [command]
+type - gives the type of command
+	EXAMPLES:
+		1. type echo (prints shell builtin- internal command)
+		2. type mkdir (prints mkdir is hashed (/bin/mkdir) - external command)
+	OPTIONS: 
+		1. gives the location of the command
+
+10. which [option] [program/command]
+	which - used to locate program in user path
+
+11. date [options]
+date - prints the set date and time
+
+12. script [option] [file]
+script - makes a transcript of the terminal session
+	OPTIONS:
+		1. -a append to the file or typescript
+
+13. cal/ncal [options]
+cal - displays calendar and date of Easter
+	EXAMPLES:
+		1. cal 2018 (displays the year 2018)
+		2. cal -m June (displays June of current year)
+		3. cal -h (turns of highlight for today's date)
+		4. cal -3 (displays current, previous and next month)
+		5. cal -Nw (display in ncal with week number)
+	OPTIONS:
+		1. -h turns of highlighting
+		2. -J display's Julian calendar 
+		3. -j display's Julian Days
+		4. -m month
+		5. -3 print previous,current and next month
+		6. -y print specific year
+		7. -C switch to cal mode
+		8. -N switch to ncal mode
+
+14. echo [option] [string]
+echo - writes the argument to stdout
+	EXAMPLES:
+		1. echo * (prints all the directories in the current one)
+		2. echo "scale=2" (set precision to 2)
+		3. echo "obase=10" (sets output base to 10)
+		4. echo "ibase=10" (sets input base to 10)
+		5. echo "Hello World" (prints hello world to the stdout)
+	OPTIONS:
+		1. -n prevents printing of trailing newline character
+		2. -e to enable escape sequences inside echo arguements
+
+15. printf [format] [arguments]
+printf -  prints the formated output onto stdout
+	EXAMPLES:
+		printf "%s\n" "1" "2" "\n3" (prints the parameters strings using the template %s\n)
+
+16. bc [option] [file]
+bc - basic calculator to perform arthimetic operations
+
+17. pwd
+pwd - print current working directory
+	OPTIONS:
+		1. -L logical 
+		2. -P physical
+
+18. cd
+cd - change directory
+	OPTIONS
+		1. . represents current directory
+		2. .. represents previous directory
+		3. absolute path /home/Desktop
+		4. relative path Desktop
+
+19. ls [options] [file]
+ls - list directory contents
+	EXAMPLES:
+		1. ls (prints all files and directories in current directory)
+		2. ls (Desktop (list all the files in the desktop when in home directory)
+		3. ls -l (list directory is list form with 7 columns of details)
+		4. ls -a (list all hidden files/ files starting with .)
+		5. ls -t (list files sorted by time modified)
+		5. ls -alt (combine all 3 options a,l,t)
+	OPTIONS:
+		1. -1 force output to be one line at a time in stdout
+		2. -a list hiddent directories (directories which begin with a dot(.))
+		3. -C force multi-column output
+		4. -d print only plain files
+		5. -B do not show back up files
+		6. -t sort by time modified
+		7. --author to display author
+		8. --color to change the color of the directories
+
+20. mkdir [option] [directory name]
+mkdir - creates an empty directory
+
+21. rmdir [option] [directory]
+rmdir - removes directories which are empty
+
+22. rm [option] [file]
+rm - removes file from the current directory
+	EXAMPLES:
+		1. rm file (removes a file)
+		2. rm -rf directory/file (rmeoves the file or directory, directory is deleted whether it is empty or not)
+
+23. mv [option] [source] [destination]
+mv - used to remane files or to move files into a directory
+	EXAMPLES:
+		1. mv a.txt b.txt (renames file a.txt to b.txt)
+		2. mv a.txt abc (moves a.txt to directory abc)
+
+24. cp [otpion] [soruce] [destination]
+cp - copies the content of source file to destination file
+	EXAMPLES:
+		cp a.txt b.txt (copies the content of a.txt to b.txt)
+
+25. touch [options] [file]
+touch - change file access and modified time
+	EXAMPLES:
+		1. touch a.txt (creates a file named a.txt)
+
+26. cat [option] [filename]
+cat - displays content of file on stdout
+	EXAMPLES:
+		cat filename (prints the file contents on terminal(stdout))
+		cat > filename (creates a file or overwrites the file)
+		cat >> filename (appends to the file)
+	OPTIONS:
+		1. -n display the line numbers
+
+27. more [option] [filename]
+more - display the file content to stdout
+	OPTIONS:
+		1. -c clear screen before displaying
+		2. -NUM NUM lines displayed
+		3. +NUM start from NUM line
+		4. -s don't display extra blank lines
+
+28. less [options] [filename]
+less - display the file content to stdout
+	OPTIONS:
+		1. -c clears full screen
+		2. -e cause less to end at eof(end of file)
+		3. -n print with line numbers
+
+29.	pr [option] [file name]
+pr- convert txt file for printing 
+	OPTIONS
+		1. -5 is 5 columns 
+		2. -t omit header
+		3. -n number lines
+		4. -d double space the output
+		5. -o ident
+
+30. chmod [options] [file]
+chmod - change the file modes for users or group or others
+	chmod u/g/o +r/w/x filename (u is user, g is group, o is others. r is read, w is write, x is execute)
+	chmod 777 file name (7 is split as 4[read],2[write],1[execute])
+	EXAMPLES:
+		chmod u+rwx filename (gives read write execute to user for the file filename)
+		chmod 700 filename (gives read write execute to user for the file filename)
+
+31.	head [option] [file]
+head - print the first lines of a file
+	OPTIONS
+		1. -n print the first n lines
+	usage of head 
+		1. last used file can be opened in editor
+			vi `ls -t | head -n 1`
+		2. to copy first few rows of data
+			head -n 5 emp.lst | tee shortlist
+
+32.	tail [option] [file]
+tail - print the last lines of the file
+	OPTIONS
+		1. -n print the last n lines
+
+33.	cut [option] [file]
+cut - remove sections from each line of files (prints the selected parts of lines from each FILE to stdout)
+	cut -c 6-22,24-32 filename (prints only those characters)
+	cut -c 6-22,24- filename (prints 6-22 and then 24-end characters)
+	cut -d \| -f 2,3 filename | tee cutlist1 (prints delimiter and fields(2,3) from file name to tee)
+	cut -d "|" -f 2,3 filename > tee cutlist1 (prints delimiter and fields(2,3) from file name to tee)
+	cut -d \| -f 2,4- filename | tee cutlist1 (prints delimiter and fields(2 and 4-end) from file name to tee)
+	OPTIONS
+		1. -c select only these characters
+		2. -d use delimiters instead ot TAB
+		3. -f select only certain fields
+
+34. wc [options] [file]
+wc - word,line,char and byte count
+	EXAMPLES:
+		1. wc -c file (lists the number or characters in the file)
+		2. wc -l file (lists the number of lines in the file)
+		3. wc -w file (lists the number of word in the file)
+	OPTIONS:
+		1. -c number of bytes in the file
+		2. -l number of lines in file
+		3. -m number of char in file
+		4. -w number of words in file
+
+35.	sort [option] [file]
+sort - write sorted concatenated of all files to stdout
+	sort -t "|" -r -k 2 filename () 
+	sort -t "|" -k 5.7,5.8 filename (sort in 5th field between 7th and 8th char sort)
+	OPTIONS
+		1. -b ignore leading blanks
+		2. -d dictionary order
+		3. -g general numeric sort
+		4. -M month sort
+		5. -h human numeric sort (eg 2K 1G)
+		6. -n numeric sort (string numeric value)
+		7. -k sort via a key
+		8. -m merge already sorted files (no sorting) 
+		9. -r reverse
+		10. -u unique
+
+36.	uniq [option] [file]
+	uniq- filters duplicates and writes to stdout
+	CLAUSE: works only on files that are sorted better to use sort -u option
+
+37. cmp [OPTION] FILE1 [FILE2 [SKIP1 [SKIP2]]]
+cmp - compare two files byte by byte
+	OPTIONS:
+		1. -b prints the differing bytes
+		2. -i used to skip the first bytes (check manual for usage)
+
+38. paste [option] [file]
+paste - merge the lines of file and displays on stdout but doesn't modify the files
+	paste -s -d "||\n" filename (prints output as serial and with delimiter(2 separators for 3 fields) in every line)
+	OPTIONS
+		1. -s prints in serial instead of parallel
+		2. -d place delimiter instead of TAB
+
+39. grep [options] [pattern] [file]
+	grep uses regular expresions to match patterns in files
+	EXAMPLES:
+		1. grep "hello" file (matches and prints the lines having hello)
+		2. who | grep name > foo (selects name from who and writes it to foo)
+		3. grep "hello" file1 file2 (prints all the matches of hello in each file)
+		4. grep -i "hello" file (prints matches of hello ignoring the case of letters)
+		5. grep -v "hello" file (prints all the invert matches that is lines with no hello)
+		6. grep -n "hello" file (numbers the lines printed that matches hello in file)
+		7. grep -c "hello" file (prints the number of occurances of hello in file)
+		8. grep -l "hello" file (print all the files that have a match)
+		9. grep -e "hello" file1 -e "welcome" file2 (matches all occurance of hello in file1 and occurances of welcome in file 2)
+		10. grep -f file1 file2 (read pattern from file1 and match in file2, done by matching patterns of 1 or more lines sotred in file1)
+	OPTIONS: 
+		1. -c count the number of occurances
+
+40. curl [options] [URL]
+	curl- c url (see url)
+	OPTIONS:
+		1. -o output content of curl to file
+
+41. alias 
+	alias- used to create alias for long commands
+	EXAMPLES:
+		alias ll='ls -alt' (ll is always expanded as ls -alt)
+		alias (list all the aliases)
+
+HOMEBREW PACKAGE MANAGER (For macOS, for linux look up Linux-brew fork of homebrew)
+	Homebrew is a package manager for mac
+	COMMANDS:
+		1. brew install package (installs package)
+		2. brew uninstall package (unintalls package)
+		3. brew update (updates brew repos)
+		4. brew upgrade (upgrades packages)
+		5. brew cleanup (cleans up cache and old files)
+		6. brew info package (gives info about the installed package)
+		7. brew list (gives list of packages installed)
+		8. brew doctor (troubleshoot packages installed/related to brew)
+		9. brew prune (fix any issues)
+		10. brew help [command] (list help for commands)
+	PACKAGES:
+		1. cmatrix
+		2. cowsay
+		3. lolcat
+		4. fortune
+		5. python/python3
+		6. sl
+
+NODE PACKAGE MANAGER
+	Node package manager works on node and npm
+	COMMANDS:
+		1. node -v (lists node version)
+		2. npm -v (lists npm version)
+		3. sudo npm install -g @angular/cli (install angular cli client globally)
+		4. sudo npm install -g create-react-app (install react cli client globally)
+		5. sudo npm install -g @vue/cli (install vue cli client globally)
+
+EXTRAS
+
+UNIX NOTES:
+1. ./a.out checks only current directory while a.out looks for it in the entire path
+2. x=10 assigns the value 10 to the unix variable named x
+
+UNIX METACHARACTERS - I
+1. > - redirects stdout to file
+2. >> - appends stdout to file
+3. < - redirects stdin from file
+4. | - redirects stdout of one to stdin of another
+5. ; - separate multiple commands in a single line
+6. () - group commands to single output stream
+
+UNIX METACHARACTERS - II
+(Also called wildcards)
+1. * - matches one or more characters and NULL
+2. ? - matchs a single character
+3. [ijk] - matches a single character either i or j or k
+4. [x-z] - matches a single character with ASCII 
+5. [!ijk] - matches a single character that is not i or j or k
+6. [!x-z] - matches a single character thats not in range x-z
+7. use . with metacharacters to display hidden files
+8. {} - matching dissimilar patterns
+9. \ - use of escape sequences (backslash before a wildcard to remove it's special meaning)
+
+UNIX REGULAR EXPRESSIONS (for grep)
+1. * - 0 or more occurance of previous character
+2. .* - matches zero or more characters
+3. . - matches a single character
+4. [pqr] - matches p or q or r
+5. [a-z] - matches range of char from a-z
+6. [1-3] - matches digits between 1-3
+7. [^pqr] - matches single char other than p,q,r
+8. [^a-z A-z] - matches non alphabetic char
+9. ^pat - matches beginning of line
+10. pat$ - pat at the end of line
+
+UNIX VARIABLES
+NOTE: $: used to access the value of variables
+1. PATH: holds the path
+2. HOME: holds user name
+3. BASH_VERSION: holds bash version being used
+4. PWD: holds the working directory
+5. LINES: holds the number of lines in terminal screen
+6. COLUMNS: holds the number of columns in terminal screen
+7. LOGNAME: holds the logged in username
+8. $: used to hold the process ID
+9. @: all the parameters in a script
+

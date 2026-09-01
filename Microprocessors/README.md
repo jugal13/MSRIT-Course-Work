@@ -1,0 +1,36 @@
+# Microprocessors Lab
+
+## Programs
+
+### ARM
+1. [Add 32 bit Numbers](ARM/Add32bit.asm)
+2. [Add 62 bit Numbers](ARM/Add64bit.asm)
+3. [Perform bit clear in a range & bit extract in range](ARM/Bit&#32;clear&#32;and&#32;extract.asm)
+4. [Copy 10 data from one address to another](ARM/Copy&#32;memory.asm)
+5. [Copy data from one address to another using stack](ARM/Copy&#32;using&#32;stack.asm)
+6. [Factorial of a number](ARM/Factorial.asm)
+7. [Find value of expression 2x^2+x+3](ARM/Find&#32;value&#32;of&#32;expr.asm)
+8. [Multiply 2 numbers](ARM/Multiplication32bit.asm)
+8. [Demonstrate usage of stack ](ARM/Stack.asm)
+9. [Subtract 32 bit Numbers](ARM/Sub32bit.asm)
+10. [Subtract 64 bit Numbers](ARM/Sub64bit.asm)
+11. [Sum of N array elements](ARM/Sum&#32;of&#32;N&#32;array&#32;numbers.asm)
+12. [Sum of first N natural numbers](ARM/Sum&#32;of&#32;N&#32;numbers.asm)
+13. [Swap 100 memory location data](ARM/Swap&#32;memory.asm)
+14. [Swap two numbers ](ARM/Swap&#32;numbers.asm)
+15. [Switch Case Example](ARM/Switch&#32;Case.asm)
+16. [Calculate value of expression 2x+9 using User defined Function](ARM/UDF)
+17. [Demonstrate the use of nested functions](ARM/Nested&#32;Functions)
+
+### Hardware (C programs)
+1. [Program to Buzz B11 Buzzer on Interrupt](Hardware/Buzzer&#32;(B11&#32;using&#32;interrupt.c))
+2. [Program to Print String on LCD](Hardware/LCD&#32;(Print).c)
+3. [Program to Display Keypad Number on LCD](Hardware/LCD&#32;(ScanKey).c)
+4. [Program to light up LED C14 on interrupt](Hardware/LED&#32;(C14&#32;using&#32;interrupt).c)
+5. [Program to light up LED C15 on interrupt](Hardware/LED(C15&#32;using&#32;interrupt).c)
+6. [Program to light up RGB LED](Hardware/RGB&#32;LED.c)
+7. [Program to make a Ring Counter using LED](Hardware/Ring&#32;Counter&#32;(LED).c)
+8. [Program to use Buzzer B11 and LED C12 on Scankey inputs 3 and 2 respectively](Hardware/ScanKey&#32;(B11&#32;and&#32;C12).c)
+9. [Program to build 0-9999 counter on 7 Segment Display](Hardware/Seven&#32;Segment&#32;(0-9999).c)
+10. [Program to Display Keypad Number on 7 Segment Display](Hardware/Seven&#32;Segment&#32;(ScanKey).c)
+11. [Program to use two different EINT Interrupts](Hardware/Two&#32;Interrupts.c)
